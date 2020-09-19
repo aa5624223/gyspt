@@ -1,0 +1,39 @@
+<!--pages/Certify/Certify.wxml-->
+<!-- 登录页面 -->
+<view class="">
+	<view class="userinfo" style="margin-top:10%;margin-bottom:0%;">
+		<button wx:if="{{!userInfo.nickName}}" open-type="getUserInfo" style="margin-bottom:65px;" type="default" bindgetuserinfo="getUserInfo"> 获取用户信息 </button>
+		<block wx:else>
+			<image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+			<text class="userinfo-nickname">{{userInfo.nickName}}</text>
+		</block>
+	</view>
+	<form bindsubmit="btn_Confirm">
+  <input name='aid' value="{{aid}}" style="display:none"></input>
+		<mp-cells title="账号信息">
+			<mp-cell title="账 号" ext-class="">
+				<input data-field="UserId" name='userName' id="UserId" class="weui-input" placeholder="请输入账号" />
+			</mp-cell>
+			<mp-cell title="密 码" ext-class="">
+				<input data-field="password" name='password' id="password" class="weui-input" type="password" placeholder="请输入密码" />
+			</mp-cell>
+			<mp-cell title="工 厂" class="weui-cell_select" ext-class="">
+          <picker bindchange="bindFaChange"  style="margin-left: 15px;" value="{{faIndex}}" range="{{Fa}}">
+						<view class="weui-select weui-select_in-select-after">{{Fa[faIndex]}}</view>
+					</picker>
+      </mp-cell>
+			
+      <mp-cell title="年 度" class="weui-cell_select" ext-class="">
+          <picker bindchange="bindYearChange"  style="margin-left: 15px;" value="{{yearIndex}}" range="{{Fayear}}">
+						<view class="weui-select weui-select_in-select-after">{{Fayear[yearIndex]}}</view>
+					</picker>
+      </mp-cell>
+		
+		</mp-cells>
+		<view class="weui-btn-area" style="margin-top:50rpx">
+			<view style="color:red;width:100%;margin-left:auto" wx:if="{{!userInfo.nickName}}">请先获取用户信息，再登录。</view>
+			<button class="weui-btn" style="width:100%;margin-top:50rpx" form-type="submit" type="primary">登录</button>
+		</view>
+	</form>
+  <mp-toptips msg="{{error}}" type="error" show="{{error}}" delay="2000"></mp-toptips>
+</view>

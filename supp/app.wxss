@@ -1,0 +1,72 @@
+/**app.wxss**/
+@import 'miniprogram_npm/weui-miniprogram/weui-wxss/dist/style/weui.wxss';
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0rpx 0;
+  box-sizing: border-box;
+} 
+page{
+  background-color: #F8F8F8
+}
+.page__title{
+  text-align: left;
+  font-size: 20px;
+  font-weight: 400;
+}
+.page__hd{
+  padding:40px
+}
+.fontStyle0{
+  color:rgb(51,52,52);
+  font-weight:600;
+  font-size:1.2rem;
+}
+.fontStyle1{
+  color:rgb(51,52,52);
+  font-size:1.2rem;
+}
+.fontStyle2{
+  font-size:1rem;
+  color: rgb(51,52,52);
+}
+.fontStyle3{
+  font-size:1rem;
+  color: rgb(145,145,145);
+}
+.fontStyle4{
+  font-size: 1rem;
+  color: rgb(175, 22, 22);
+}
+.subTitle{
+  color:rgb(51,52,52);
+  font-size:1.5rem;
+}
+.weui-cells__title{
+  font-weight: 600;
+}
+.OrderNoutFount{
+  color: rgb(51,52,52);
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-top: 30px;
+  text-align: center;
+}
+.tab-bar-title_selected{
+  background: #07c160!important;
+  font-size:110%;
+}
+.weui-tabs-bar__title{
+  padding: 4px;
+  
+  border-radius: 13px;
+  border-bottom: 0px;
+  border-bottom-style: none!important;
+}
+.SelfSelect_small view{
+  padding-top: 0px;
+  padding-bottom: 0px;
+}

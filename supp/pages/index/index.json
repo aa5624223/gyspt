@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "首页",
+  "usingComponents": {
+    "mp-tabbar": "../../miniprogram_npm/weui-miniprogram/tabbar/tabbar",
+    "mp-toptips": "../../miniprogram_npm/weui-miniprogram/toptips/toptips",
+    "mp-cells": "../../miniprogram_npm/weui-miniprogram/cells/cells",
+    "mp-cell": "../../miniprogram_npm/weui-miniprogram/cell/cell",
+    "mp-tabs": "../../miniprogram_npm/@miniprogram-component-plus/tabs",
+    "mp-icon": "../../miniprogram_npm/weui-miniprogram/icon/icon",
+    "mp-loading": "../../miniprogram_npm/weui-miniprogram/loading/loading"
+  }
+}

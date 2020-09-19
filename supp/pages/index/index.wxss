@@ -1,0 +1,15 @@
+/* pages/index/index.wxss */
+swiper {
+  height: calc(100vh);
+  overflow-y: scroll;
+}
+.weui-tabs-bar__item{
+  margin-left: 5rpx;
+  font-size:100%;
+}
+.NotFountContent{
+  color: #0c8918;
+  text-align: center;
+  background-color: transparent;
+  font-size:115%
+}

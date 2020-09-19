@@ -1,0 +1,246 @@
+<!--pages/OrderPur/OrderPur.wxml-->
+<view class="page">
+	<mp-tabs tabs="{{tabs}}" activeTab="{{activeTab}}" SwiperClass="weui-tabs-swiper" bindtabclick="onTabClick" bindchange="onChange" activeClass="tab-bar-title_selected">
+		<block wx:for="{{tabs}}" wx:key="title">
+			<view class="tab-content" data-set="{{item}}" slot="tab-content-{{index}}" bind:tab="handleClick">
+				<!-- 采购单查询 -->
+				<view wx-if="{{index==0}}" scroll-y style="height: {{DataList1.length*21.7}}%;">
+					<view class="ViewSearch">
+						<mp-cells title="条件查询">
+							<mp-cell title="供应商编码：">
+								<input value="{{gysCode}}" bindinput="CodeChange" class="weui-input" placeholder="请输入供应商编码" disabled="{{Role=='GYS'}}" />
+							</mp-cell>
+							<mp-cell decode='true' title="状 态:" class="weui-cell_select SelfSelect_small">
+								<picker bindchange="bindStatus" style="margin-left:50px" value="{{Status[StIndex].text}}" range="{{Status}}" range-key="text">
+									<view class="weui-select weui-select_in-select-after">{{Status[StIndex].text}}</view>
+								</picker>
+							</mp-cell>
+							<mp-cell title="订单日期开始：" class="weui-cell_select">
+								<picker data-field="date" mode="date" value="{{BeginDate}}" end="{{EndDate}}" bindchange="bindDateChange1">
+									<view class="weui-input">{{BeginDate}}</view>
+								</picker>
+							</mp-cell>
+							<mp-cell title="订单日期截止：" class="weui-cell_select" ext-class="">
+								<picker data-field="date" mode="date" value="{{EndDate}}" start="{{BeginDate}}" bindchange="bindDateChange2">
+									<view class="weui-input">{{EndDate}}</view>
+								</picker>
+							</mp-cell>
+						</mp-cells>
+						<button class="weui-btn" type="primary" size="mini" style="width:100%;margin-bottom:0px;" bindtap="btnSearch">查询</button>
+					</view>
+					<view class="OrderNoutFount" wx:if="{{DataList0.length==0}}">
+						没有找到采购单信息
+					</view>
+					<!-- id隐藏 采购单号cCpoid 物料名称cInvname 数量cIquantity 订单日期cDpodate -->
+					<mp-cells wx:for="{{DataList0}}" wx:for-item="item2" title="{{index+1}}.采购单号:{{item2.cCpoid}}">
+						<mp-cell>
+							<view class="fontStyle2">
+								物料描述：
+							</view>
+							<view class="fontStyle3">
+								{{item2.cInvname}}
+							</view>
+							<view>
+								<h class="fontStyle2">订单数量</h>：<h class="fontStyle3">{{item2.cIquantity}}</h>
+							</view>
+							<view>
+									<h class="fontStyle2">确认数量</h>：<h class="fontStyle3">{{item2.QrIquantity}}</h>
+								</view>
+							<view>
+								<h class="fontStyle2">到货数</h>：<h class="fontStyle3">{{item2.cIquantity}}</h>
+								<h class="fontStyle2" style="margin-left:20rpx">入库数</h>：<h class="fontStyle3">{{item2.Freceivedqty}}</h>
+							</view>
+							<view>
+								<h class="fontStyle2">订单日期：</h><text class="fontStyle3">{{item2.cDpodate}}</text>
+							</view>
+							<view>
+								<h class="fontStyle2">要求到货日期：</h><text class="fontStyle3">{{item2.cDArriveDate}}</text>
+							</view>
+								<view>
+									<h class="fontStyle2">确认到货日期：</h><text class="fontStyle3">{{item2.QrArriveDate}}</text>
+								</view>
+							<view>
+								<h class="fontStyle2">状态：</h><text class="fontStyle3">{{item2.Status}}</text>
+							</view>
+						</mp-cell>
+
+					</mp-cells>
+					<view>
+						<view><text decode="true">&nbsp;</text></view>
+						<view><text decode="true">&nbsp;</text></view>
+					</view>
+				</view>
+				<!-- 采购单确认 -->
+				<view wx-if="{{index==1}}" style="margin-top:40px" scroll-y>
+					<view wx-if="{{index==1}}" style="margin-top:40px;height:100%" scroll-y>
+						<mp-cells title="条件查询">
+							<mp-cell title="供 应 商 ：" wx-if="{{Role!='GYS'}}">
+								<input bindinput="gysChange2" class="weui-input" type="text" value="{{gysCode2}}" placeholder="请输入供应商代码" />
+							</mp-cell>
+							<mp-cell title="订单日期开始：" class="weui-cell_select">
+								<picker data-field="date" mode="date" value="{{BeginDate3}}" end="{{EndDate3}}" bindchange="bindDateChange5">
+									<view class="weui-input">{{BeginDate3}}</view>
+								</picker>
+							</mp-cell>
+							<mp-cell title="订单日期截止：" class="weui-cell_select" ext-class="">
+								<picker data-field="date" mode="date" value="{{EndDate3}}" start="{{BeginDate3}}" bindchange="bindDateChange6">
+									<view class="weui-input">{{EndDate3}}</view>
+								</picker>
+							</mp-cell>
+							<button class="weui-btn" type="primary" size="mini" style="width:100%;margin-bottom:0px;" bindtap="btnSearch2">查询</button>
+						</mp-cells>
+					</view>
+					<view class="OrderNoutFount" wx:if="{{DataList1.length==0}}">
+						没有找到采购单信息
+					</view>
+					<mp-cells wx:for="{{DataList1}}" wx:for-item="item2" title="{{index+1}}.采购单号:{{item2.cCpoid}}">
+						<mp-cell>
+							<view data-list="{{item2}}" bindtap="Confirm_Det">
+								<view class="fontStyle2">
+									物料描述：
+								</view>
+								<view class="fontStyle3">
+									{{item2.cInvname}}
+								</view>
+								<view>
+									<h class="fontStyle2">数量</h>：<h class="fontStyle3">{{item2.cIquantity}}</h>
+								</view>
+								<view>
+									<h class="fontStyle2">确认数量</h>：<h class="fontStyle3">{{item2.QrIquantity}}</h>
+								</view>
+								<view>
+									<h class="fontStyle2">订单日期：</h><text class="fontStyle3">{{item2.cDpodate}}</text>
+								</view>
+								<view>
+									<h class="fontStyle2">要求到货日期：</h><text class="fontStyle3">{{item2.cDArriveDate}}</text>
+								</view>
+								<view>
+									<h class="fontStyle2">确认到货日期：</h><text class="fontStyle3">{{item2.QrArriveDate}}</text>
+								</view>
+							</view>
+							<view slot="footer">
+								<mp-checkbox-group prop="checkbox" multi="{{true}}" data-id="{{item2.cId}}" data-index="{{index}}" bindchange="checkboxChange1">
+									<mp-checkbox label="" value="{{item2.cId}}" checked="{{ConfirmCheck}}"></mp-checkbox>
+								</mp-checkbox-group>
+							</view>
+						</mp-cell>
+					</mp-cells>
+					<view style="height:100px">
+						<text decode="true">&nbsp;</text>
+					</view>
+					<view class="btmBar" style="bottom:23px">
+						<view style="width:56%;float:left;margin-left:4%;">
+							<checkbox-group bindchange="checkboxChange" style="margin-top:5px;" bindchange="ConfirmAll">
+								<checkbox value='check'>全选</checkbox>
+							</checkbox-group>
+						</view>
+						<view style="width:40%;float:left">
+							<!-- disabled="{{ConfirmList.length==0}}" -->
+							<button type="primary" bindtap="Half_Show" disabled="{{ConfirmList.length==0}}">确认订单</button>
+						</view>
+						<view><text decode="true">&nbsp;</text></view>
+					</view>
+				</view>
+				<!-- 采购单取消 -->
+				<view wx-if="{{index==2&&Role!='GYS'}}" style="margin-top:40px;height:100%" scroll-y>
+					<view class="">
+						<mp-cells title="条件查询">
+							<mp-cell title="供 应 商 ：">
+								<input bindinput="gysChange3" class="weui-input" type="text" value="{{gysCode3}}" placeholder="请输入供应商代码" />
+							</mp-cell>
+							<mp-cell title="订单日期开始：" class="weui-cell_select">
+								<picker data-field="date" mode="date" value="{{BeginDate2}}" end="{{EndDate2}}" bindchange="bindDateChange3">
+									<view class="weui-input">{{BeginDate2}}</view>
+								</picker>
+							</mp-cell>
+							<mp-cell title="订单日期截止：" class="weui-cell_select" ext-class="">
+								<picker data-field="date" mode="date" value="{{EndDate}}" start="{{BeginDate2}}" bindchange="bindDateChange4">
+									<view class="weui-input">{{EndDate2}}</view>
+								</picker>
+							</mp-cell>
+							<button class="weui-btn" type="primary" size="mini" style="width:100%;margin-bottom:0px;" bindtap="btnSearch3">查询</button>
+						</mp-cells>
+					</view>
+					<view class="OrderNoutFount" wx:if="{{DataList2.length==0}}">
+						没有找到采购单信息
+					</view>
+					<mp-cells wx:for="{{DataList2}}" wx:for-item="item2" title="{{index+1}}.采购单号:{{item2.cCpoid}}">
+						<mp-cell>
+							<view class="fontStyle2">
+								物料描述：
+							</view>
+							<view class="fontStyle3">
+								{{item2.cInvname}}
+							</view>
+							<view>
+								<h class="fontStyle2">订单数量</h>：<h class="fontStyle3">{{item2.cIquantity}}</h>
+							</view>
+							<view>
+								<h class="fontStyle2">到货数</h>：<h class="fontStyle3">{{item2.PoArrQuantity}}</h>
+							</view>
+							<view>
+								<h class="fontStyle2">入库数</h>：<h class="fontStyle3">{{item2.Freceivedqty}}</h>
+							</view>
+							<view>
+								<h class="fontStyle2">订单日期：</h><text class="fontStyle3">{{item2.cDpodate}}</text>
+							</view>
+							<view>
+								<h class="fontStyle2">要求到货日期：</h><text class="fontStyle3">{{item2.cDArriveDate}}</text>
+							</view>
+							<view slot="footer">
+								<mp-checkbox-group prop="checkbox" multi="{{true}}" data-id="{{item2.cId}}" data-index="{{index}}" bindchange="checkboxChange2">
+									<mp-checkbox label="" value="{{item2.cId}}" checked="{{CancelCheck}}"></mp-checkbox>
+								</mp-checkbox-group>
+							</view>
+						</mp-cell>
+
+					</mp-cells>
+					<view style="height:100px">
+						<text decode="true">&nbsp;</text>
+					</view>
+
+					<view class="btmBar">
+						<view style="width:56%;float:left;margin-left:4%;">
+							<checkbox-group bindchange="checkboxChange" style="margin-top:5px;" bindchange="CancelAll">
+								<checkbox value='check'>全选</checkbox>
+							</checkbox-group>
+						</view>
+
+						<view style="width:40%;float:left">
+							<!-- disabled="{{CancelList.length==0||Role=='GYS'}}"  -->
+							<button type="primary" disabled="{{CancelList.length==0}}" bindtap="OrderCancel">取消订单</button>
+						</view>
+
+					</view>
+				</view>
+			</view>
+		</block>
+	</mp-tabs>
+	<mp-toptips msg="{{error}}" type="error" show="{{error}}" delay="2000"></mp-toptips>
+	<mp-toptips msg="{{success}}" type="success" show="{{success}}" delay="2000"></mp-toptips>
+</view>
+<mp-halfScreenDialog bindbuttontap="buttontap" show="{{Halfshow}}" maskClosable="{{true}}">
+
+	<view slot="title">
+		<text>请输入备注</text>
+	</view>
+
+	<view slot="desc" style="margin-left:10%;">
+		<cells>
+			<mp-cell title="备注：" class="">
+				<input type="text" bindinput="Input_OrderBz" placeholder="请输入备注"></input>
+			</mp-cell>
+		</cells>
+	</view>
+
+	<view slot="footer">
+		<view>
+			<button style="margin-left:10%;width:40%;float:left" type="default" bindtap="HalfButton_Cancel">取消</button>
+			<button style="margin-left:10%;width:40%;float:left" type="primary" bindtap="HalfButton_Confirm">确定</button>
+			<view>
+				<text decode="true">&nbsp;</text>
+			</view>
+		</view>
+	</view>
+
+</mp-halfScreenDialog>

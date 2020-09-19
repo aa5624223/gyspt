@@ -1,0 +1,33 @@
+<!--pages/OrderInOpt/OrderInOpt.wxml-->
+<view>
+  
+	<view class="title">{{title}}</view>
+	<view class="timetitle">创建时间:{{NewsDetail.EditDate}}</view>
+  <view class="btn_View">
+		<view class="btn_back" bindtap="backtoIndex">返回</view>
+	</view>
+	<view class="subtitle">问题描述</view>
+  <view>
+        <mp-loading duration="{{900}}" type="circle" tips="数据加载中" show="{{loadShow}}"></mp-loading>
+  </view>
+	<view class="subtitle_content">{{NewsDetail.Contents}}</view>
+	<view class="subtitle">附件</view>
+  <view>
+        <mp-loading duration="{{900}}" type="circle" tips="数据加载中" show="{{loadShow}}"></mp-loading>
+  </view>
+	<view class="subtitle_content" wx:if="{{NewsDetail.FileList.length!=0}}">
+		<mp-cells ext-class="my-cells" title="点击文件名下载" wx:if="{{NewsDetail.FileList.length>0}}">
+			<mp-cell wx:for="{{NewsDetail.FileList}}" data-url="{{item.Address}}" bindtap="filedownLoad">
+				<view>{{index+1}}.{{item.Filename}}</view>
+				<view slot="footer">
+					<mp-icon type="field" icon="arrow" size="{{15}}"></mp-icon>
+				</view>
+			</mp-cell>
+		</mp-cells>
+	</view>
+  
+	<view class="subtitle_content" wx:else >没有附件</view>
+  
+	
+  
+</view>

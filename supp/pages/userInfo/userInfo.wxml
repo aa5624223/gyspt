@@ -1,0 +1,43 @@
+<!--pages/userInfo/userInfo.wxml-->
+<view>
+	<mp-cells title="个人信息">
+		<mp-cell>
+			<view class="fontStyle2"><text decode="true">用户名称&emsp;：{{userInfo.UserName}}</text></view>
+		</mp-cell>
+		<mp-cell>
+			<view class="fontStyle2"><text decode="true">类&emsp;&emsp;&emsp;型：{{userInfo.cRole=="GYS"?"供应商":"其他"}}</text></view>
+		</mp-cell>
+		<mp-cell>
+			<view class="fontStyle2"><text decode="true">供应商编码：{{userInfo.gysCode}}</text></view>
+		</mp-cell>
+	</mp-cells>
+	<mp-cells title="更改密码">
+		<mp-cell ext-class="">
+			<view>原始密码：</view>
+			<view>
+				<input bindinput="pas0Change" class="weui-input" type="password" value="{{pas0}}" placeholder="请输入原始密码" />
+			</view>
+		</mp-cell>
+		<mp-cell ext-class="">
+			<view>更改的密码：</view>
+			<view>
+				<input bindinput="pas1Change" class="weui-input" type="password" value="{{pas1}}" placeholder="请输入密码" />
+			</view>
+		</mp-cell>
+		<mp-cell>
+			<view>再次输入更改的密码：</view>
+			<view>
+				<input bindinput="pas2Change" class="weui-input" type="password" value="{{pas2}}" placeholder="再次输入密码" />
+			</view>
+		</mp-cell>
+		<button type="primary" bindtap="changePas" style="margin-top:30px;width:80%">更改密码</button>
+		<button type="primary" bindtap="Relogin" style="margin-top:30px;width:80%">注销登录</button>
+		<view style="height:130rpx;">
+			<text decode="true">&nbsp;</text>
+			<text decode="true">&nbsp;</text>
+			<text decode="true">&nbsp;</text>
+		</view>
+	</mp-cells>
+	<mp-toptips msg="{{error}}" type="error" show="{{error}}" delay="2000"></mp-toptips>
+	<mp-toptips msg="{{success}}" type="success" show="{{success}}" delay="2000"></mp-toptips>
+</view>

@@ -1,0 +1,33 @@
+<!--pages/OrderIn_Rec/OrderIn_Rec.wxml-->
+<view class="page">
+	<view class="viewTitle">
+		<!-- <view class="fontStyle0">
+			<text class="fontStyle1">供 应 商：</text>{{gys}}
+		</view> -->
+		<view class="fontStyle0">
+			<text class="fontStyle1">入 库 单：</text>{{ccode}}
+		</view>
+		<view class="fontStyle0">
+			<text class="fontStyle1">记 录 数：</text>{{DataList.length}}条
+		</view>
+	</view>
+	<!-- 操作名称Event  ，发票号Fph ，操作员cUserName ，操作时间（接口）Czsj  -->
+	<view style="margin-left:3%;margin-right:3%;width:93%">
+	<view>
+        <mp-loading duration="{{900}}" type="circle" tips="数据加载中" show="{{loadShow}}"></mp-loading>
+  </view>
+		<mp-cells wx:for="{{DataList}}" title="{{index+1}}.操作:{{item.Event}}">
+			<mp-cell>
+				<view class="fontStyle3">
+					<font class="fontStyle2">发票号：</font>{{item.Fph}}
+				</view>
+				<view class="fontStyle3">
+					<font class="fontStyle2">操作员：</font>{{item.cUserName}}
+				</view>
+				<view class="fontStyle3">
+					<font class="fontStyle2">操作时间：</font>{{item.Czsj}}
+				</view>
+			</mp-cell>
+		</mp-cells>
+	</view>
+</view>

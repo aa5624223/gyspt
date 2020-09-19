@@ -1,0 +1,818 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetPoList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strFactory" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strYear" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSdate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strEdate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strVencode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCzy" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strStatus" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPoListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPoListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MySoapHeader" type="tns:MySoapHeader" />
+      <s:complexType name="MySoapHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PassWord" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="PoQrDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strBz" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strQrArriveDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strQrIquantity" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PoQrDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PoQrDetailResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PoQr">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strBz" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strFactory" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strYear" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strUserCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PoQrResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PoQrResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PoQr_qx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strFactory" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strYear" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strUserCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PoQr_qxResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PoQr_qxResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRDlist">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strFactory" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strYear" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSdate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strEdate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strVencode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCzy" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strStatus" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRDlistResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRDlistResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRdDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strFactory" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strYear" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCcode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRdDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRdDetailsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRDlist2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strFactory" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strYear" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSdate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strEdate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strVencode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCzy" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strStatus" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRDlist2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRDlist2Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRkdEvent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strFactory" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strYear" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strMainId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRkdEventResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRkdEventResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Rdstatus">
+        <s:complexType />
+      </s:element>
+      <s:element name="RdstatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RdstatusResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateWxh">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strUserCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strWxh" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strMobile" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateWxhResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateWxhResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePwd">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strUserCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strPwd" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePwdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdatePwdResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUinfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strFactory" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strYear" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strUserCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strWxh" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strMobile" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strPwd" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUinfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUinfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNewsList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strFactory" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strYear" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strUserCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strRole" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNewsListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetNewsListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNewsDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNewsDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetNewsDetailResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFiles">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFilesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFilesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Ddl_Zt">
+        <s:complexType />
+      </s:element>
+      <s:element name="Ddl_ZtResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Ddl_ZtResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetPoListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPoList" />
+  </wsdl:message>
+  <wsdl:message name="GetPoListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPoListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPoListMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="PoQrDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:PoQrDetail" />
+  </wsdl:message>
+  <wsdl:message name="PoQrDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:PoQrDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="PoQrDetailMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="PoQrSoapIn">
+    <wsdl:part name="parameters" element="tns:PoQr" />
+  </wsdl:message>
+  <wsdl:message name="PoQrSoapOut">
+    <wsdl:part name="parameters" element="tns:PoQrResponse" />
+  </wsdl:message>
+  <wsdl:message name="PoQrMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="PoQr_qxSoapIn">
+    <wsdl:part name="parameters" element="tns:PoQr_qx" />
+  </wsdl:message>
+  <wsdl:message name="PoQr_qxSoapOut">
+    <wsdl:part name="parameters" element="tns:PoQr_qxResponse" />
+  </wsdl:message>
+  <wsdl:message name="PoQr_qxMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetRDlistSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRDlist" />
+  </wsdl:message>
+  <wsdl:message name="GetRDlistSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRDlistResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRDlistMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetRdDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRdDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetRdDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRdDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRdDetailsMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetRDlist2SoapIn">
+    <wsdl:part name="parameters" element="tns:GetRDlist2" />
+  </wsdl:message>
+  <wsdl:message name="GetRDlist2SoapOut">
+    <wsdl:part name="parameters" element="tns:GetRDlist2Response" />
+  </wsdl:message>
+  <wsdl:message name="GetRDlist2MySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetRkdEventSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRkdEvent" />
+  </wsdl:message>
+  <wsdl:message name="GetRkdEventSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRkdEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRkdEventMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="RdstatusSoapIn">
+    <wsdl:part name="parameters" element="tns:Rdstatus" />
+  </wsdl:message>
+  <wsdl:message name="RdstatusSoapOut">
+    <wsdl:part name="parameters" element="tns:RdstatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="RdstatusMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateWxhSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateWxh" />
+  </wsdl:message>
+  <wsdl:message name="UpdateWxhSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateWxhResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateWxhMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePwdSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdatePwd" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePwdSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdatePwdResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePwdMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetUinfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUinfo" />
+  </wsdl:message>
+  <wsdl:message name="GetUinfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUinfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUinfoMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetNewsListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNewsList" />
+  </wsdl:message>
+  <wsdl:message name="GetNewsListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNewsListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetNewsListMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetNewsDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNewsDetail" />
+  </wsdl:message>
+  <wsdl:message name="GetNewsDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNewsDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetNewsDetailMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetFilesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFiles" />
+  </wsdl:message>
+  <wsdl:message name="GetFilesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFilesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFilesMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="Ddl_ZtSoapIn">
+    <wsdl:part name="parameters" element="tns:Ddl_Zt" />
+  </wsdl:message>
+  <wsdl:message name="Ddl_ZtSoapOut">
+    <wsdl:part name="parameters" element="tns:Ddl_ZtResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ddl_ZtMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:portType name="WebService1Soap">
+    <wsdl:operation name="GetPoList">
+      <wsdl:input message="tns:GetPoListSoapIn" />
+      <wsdl:output message="tns:GetPoListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PoQrDetail">
+      <wsdl:input message="tns:PoQrDetailSoapIn" />
+      <wsdl:output message="tns:PoQrDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PoQr">
+      <wsdl:input message="tns:PoQrSoapIn" />
+      <wsdl:output message="tns:PoQrSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PoQr_qx">
+      <wsdl:input message="tns:PoQr_qxSoapIn" />
+      <wsdl:output message="tns:PoQr_qxSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRDlist">
+      <wsdl:input message="tns:GetRDlistSoapIn" />
+      <wsdl:output message="tns:GetRDlistSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRdDetails">
+      <wsdl:input message="tns:GetRdDetailsSoapIn" />
+      <wsdl:output message="tns:GetRdDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRDlist2">
+      <wsdl:input message="tns:GetRDlist2SoapIn" />
+      <wsdl:output message="tns:GetRDlist2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRkdEvent">
+      <wsdl:input message="tns:GetRkdEventSoapIn" />
+      <wsdl:output message="tns:GetRkdEventSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Rdstatus">
+      <wsdl:input message="tns:RdstatusSoapIn" />
+      <wsdl:output message="tns:RdstatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWxh">
+      <wsdl:input message="tns:UpdateWxhSoapIn" />
+      <wsdl:output message="tns:UpdateWxhSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePwd">
+      <wsdl:input message="tns:UpdatePwdSoapIn" />
+      <wsdl:output message="tns:UpdatePwdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUinfo">
+      <wsdl:input message="tns:GetUinfoSoapIn" />
+      <wsdl:output message="tns:GetUinfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewsList">
+      <wsdl:input message="tns:GetNewsListSoapIn" />
+      <wsdl:output message="tns:GetNewsListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewsDetail">
+      <wsdl:input message="tns:GetNewsDetailSoapIn" />
+      <wsdl:output message="tns:GetNewsDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFiles">
+      <wsdl:input message="tns:GetFilesSoapIn" />
+      <wsdl:output message="tns:GetFilesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ddl_Zt">
+      <wsdl:input message="tns:Ddl_ZtSoapIn" />
+      <wsdl:output message="tns:Ddl_ZtSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebService1Soap" type="tns:WebService1Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetPoList">
+      <soap:operation soapAction="http://tempuri.org/GetPoList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetPoListMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PoQrDetail">
+      <soap:operation soapAction="http://tempuri.org/PoQrDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:PoQrDetailMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PoQr">
+      <soap:operation soapAction="http://tempuri.org/PoQr" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:PoQrMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PoQr_qx">
+      <soap:operation soapAction="http://tempuri.org/PoQr_qx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:PoQr_qxMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRDlist">
+      <soap:operation soapAction="http://tempuri.org/GetRDlist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetRDlistMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRdDetails">
+      <soap:operation soapAction="http://tempuri.org/GetRdDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetRdDetailsMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRDlist2">
+      <soap:operation soapAction="http://tempuri.org/GetRDlist2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetRDlist2MySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRkdEvent">
+      <soap:operation soapAction="http://tempuri.org/GetRkdEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetRkdEventMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Rdstatus">
+      <soap:operation soapAction="http://tempuri.org/Rdstatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:RdstatusMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWxh">
+      <soap:operation soapAction="http://tempuri.org/UpdateWxh" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UpdateWxhMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePwd">
+      <soap:operation soapAction="http://tempuri.org/UpdatePwd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UpdatePwdMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUinfo">
+      <soap:operation soapAction="http://tempuri.org/GetUinfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetUinfoMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewsList">
+      <soap:operation soapAction="http://tempuri.org/GetNewsList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetNewsListMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewsDetail">
+      <soap:operation soapAction="http://tempuri.org/GetNewsDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetNewsDetailMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFiles">
+      <soap:operation soapAction="http://tempuri.org/GetFiles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetFilesMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ddl_Zt">
+      <soap:operation soapAction="http://tempuri.org/Ddl_Zt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Ddl_ZtMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebService1Soap12" type="tns:WebService1Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetPoList">
+      <soap12:operation soapAction="http://tempuri.org/GetPoList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetPoListMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PoQrDetail">
+      <soap12:operation soapAction="http://tempuri.org/PoQrDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:PoQrDetailMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PoQr">
+      <soap12:operation soapAction="http://tempuri.org/PoQr" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:PoQrMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PoQr_qx">
+      <soap12:operation soapAction="http://tempuri.org/PoQr_qx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:PoQr_qxMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRDlist">
+      <soap12:operation soapAction="http://tempuri.org/GetRDlist" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetRDlistMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRdDetails">
+      <soap12:operation soapAction="http://tempuri.org/GetRdDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetRdDetailsMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRDlist2">
+      <soap12:operation soapAction="http://tempuri.org/GetRDlist2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetRDlist2MySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRkdEvent">
+      <soap12:operation soapAction="http://tempuri.org/GetRkdEvent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetRkdEventMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Rdstatus">
+      <soap12:operation soapAction="http://tempuri.org/Rdstatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:RdstatusMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWxh">
+      <soap12:operation soapAction="http://tempuri.org/UpdateWxh" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UpdateWxhMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePwd">
+      <soap12:operation soapAction="http://tempuri.org/UpdatePwd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UpdatePwdMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUinfo">
+      <soap12:operation soapAction="http://tempuri.org/GetUinfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetUinfoMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewsList">
+      <soap12:operation soapAction="http://tempuri.org/GetNewsList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetNewsListMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewsDetail">
+      <soap12:operation soapAction="http://tempuri.org/GetNewsDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetNewsDetailMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFiles">
+      <soap12:operation soapAction="http://tempuri.org/GetFiles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetFilesMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ddl_Zt">
+      <soap12:operation soapAction="http://tempuri.org/Ddl_Zt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:Ddl_ZtMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebService1">
+    <wsdl:port name="WebService1Soap" binding="tns:WebService1Soap">
+      <soap:address location="http://172.31.5.131:703/WebService1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebService1Soap12" binding="tns:WebService1Soap12">
+      <soap12:address location="http://172.31.5.131:703/WebService1.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,51 @@
+<!--pages/OrderIn/OrderIn.wxml-->
+<view class="page">
+	<view class="ViewSearch"> 
+		<mp-cells title="条件查询">
+			<mp-cell title="供应商编码：">
+				<input value="{{gysCode}}"class="weui-input" bindinput="CodeChange"  placeholder="请输入供应商编码" disabled="{{Role=='GYS'}}" />
+			</mp-cell>
+			<mp-cell decode='true' title="状 态:" class="weui-cell_select SelfSelect_small">
+				<picker bindchange="bindStatus" style="margin-left:50px" value="{{Status[StIndex].text}}"  range="{{Status}}" range-key="text">
+						<view class="weui-select weui-select_in-select-after">{{Status[StIndex].text}}</view>
+				</picker>
+			</mp-cell>
+			<mp-cell title="过账日期：" class="weui-cell_select">
+				<picker data-field="date" mode="date" value="{{BeginDate}}" end="{{EndDate}}" bindchange="bindDateChange1">
+					<view class="weui-input">{{BeginDate}}</view>
+				</picker>
+			</mp-cell>
+			<mp-cell title="结束日期：" class="weui-cell_select" ext-class="">
+				<picker data-field="date" mode="date" value="{{EndDate}}" start="{{BeginDate}}" bindchange="bindDateChange2">
+					<view class="weui-input">{{EndDate}}</view>
+				</picker>
+			</mp-cell>
+		</mp-cells>
+    <button class="weui-btn" type="primary" size="mini" style="width:100%;margin-bottom:0px;" bindtap="getData">查询</button>
+	</view>
+  <view class="DataShow">
+		<view>
+        <mp-loading duration="{{900}}" type="circle" tips="数据加载中" show="{{loadShow}}"></mp-loading>
+  	</view>
+    
+		<mp-cells wx:for="{{OrderList}}" title="{{index+1}}.入库单号:{{item.ccode}}">
+      <mp-slideview buttons="{{slideButtons}}" bindbuttontap="slideButtonTap" data-id="{{item.ccode}}" data-gys="{{item.cvenname}}">
+        <mp-cell>
+          <view class="fontStyle3"><font class="fontStyle2">物料号：</font>{{item.cInvcode}}</view>
+          <view class="fontStyle3"><font class="fontStyle2">物料描述：</font>{{item.cInvname}} </view>
+					<view class="fontStyle3"><font class="fontStyle2">入库数量：</font>{{item.cIquantity}} {{item.cInvm_unit}}</view>
+					<view class="fontStyle3"><font class="fontStyle2">状态：</font>{{item.status}} <font class="fontStyle2">过账日期：</font>{{item.ddate}}</view>
+        </mp-cell>
+      </mp-slideview>
+    </mp-cells>
+    <view class="OrderNoutFount" wx:if="{{OrderList.length==0}}">
+      没有找到入库单信息
+    </view>
+  </view>
+  <view>
+    <view><text decode="true">&nbsp;</text></view>
+    <view><text decode="true">&nbsp;</text></view>
+    <view><text decode="true">&nbsp;</text></view>
+  </view>
+  <mp-toptips msg="{{error}}" type="error" show="{{error}}" delay="2000"></mp-toptips>
+</view>

@@ -1,0 +1,33 @@
+<!--pages/OrderIn_Det/OrderIn_Det.wxml 物料编码  cInvcode   物料名称  cInvname  数量  cIquantity 计量单位 cInvm_unit 结算金额[含税] cJsje_hs -->
+<view class="page">
+<view class="viewTitle">
+  <view class="mainTitle">
+    <text decode="true" class="fontStyle1" style="">供 应 商：</text>{{gys}}
+  </view>
+  <view class="subTitle">
+    <text class="fontStyle1">入 库 单：</text>{{ccode}}
+  </view>
+  <view class="subTitle">
+    <text class="fontStyle1">明 细 项：</text>{{DataList.length}}条
+  </view>
+</view>
+<view style="margin-left:3%;margin-right:3%;width:93%">
+  <view>
+        <mp-loading duration="{{900}}" type="circle" tips="数据加载中" show="{{loadShow}}"></mp-loading>
+  </view>
+  <mp-cells wx:for="{{DataList}}" title="{{index+1}}.物料编码:{{item.cInvcode}}" >
+    <mp-cell>
+      <view class="fontStyle2">
+      物料名称：
+      </view>
+      <view class="fontStyle3">
+        {{item.cInvname}}
+      </view>
+      <view>
+        <h class="fontStyle2">数量</h>：{{item.cIquantity}} <h class="fontStyle3">{{item.cInvm_unit}}</h>
+        <h class="fontStyle2" style="margin-left:20rpx">结算金额(含税)：</h><text class="fontStyle4">{{item.cJsje_hs}}</text>
+      </view>
+    </mp-cell>
+  </mp-cells>
+</view>
+</view>

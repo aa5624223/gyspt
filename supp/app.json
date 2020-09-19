@@ -1,0 +1,62 @@
+{
+  "pages": [
+    
+    "pages/login/login",
+    "pages/OrderPurConfirmDet/OrderPurConfirmDet",
+    "pages/userInfo/userInfo",
+    "pages/OrderPur/OrderPur",
+    "pages/OrderIn_Det/OrderIn_Det",
+    "pages/OrderIn/OrderIn",
+    "pages/NewsDet/NewsDet",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/Test/Test",
+    "pages/OrderIn_Rec/OrderIn_Rec"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "permission": {
+    "scope.userInfo": {
+      "desc": "获取你的信息,用于绑定小程序"
+    }
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#7A7E83",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "image/icon_component.png",
+        "selectedIconPath": "image/icon_component_HL.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/OrderIn/OrderIn",
+        "iconPath": "image/icon_API.png",
+        "selectedIconPath": "image/icon_API_HL.png",
+        "text": "入库单"
+      },
+      {
+        "pagePath": "pages/OrderPur/OrderPur",
+        "iconPath": "image/icon_API.png",
+        "selectedIconPath": "image/icon_API_HL.png",
+        "text": "采购单"
+      },
+      {
+        "pagePath": "pages/userInfo/userInfo",
+        "iconPath": "image/icon_API.png",
+        "selectedIconPath": "image/icon_API_HL.png",
+        "text": "个人信息"
+      }
+    ]
+  }
+}

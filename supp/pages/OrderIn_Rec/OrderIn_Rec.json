@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "入库操作记录",
+  "usingComponents": {
+    "mp-toptips": "../../miniprogram_npm/weui-miniprogram/toptips/toptips",
+    "mp-cells": "../../miniprogram_npm/weui-miniprogram/cells/cells",
+    "mp-cell": "../../miniprogram_npm/weui-miniprogram/cell/cell",
+    "mp-loading": "../../miniprogram_npm/weui-miniprogram/loading/loading"
+  }
+}

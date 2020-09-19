@@ -1,0 +1,41 @@
+/* pages/OrderPur/OrderPur.wxss */
+swiper {
+  height: calc(100vh);
+}
+.tab-content{
+  height: calc(100vh);
+  overflow-y: scroll;
+}
+.weui-tabs-bar__item{
+  margin-left: 20rpx;
+  font-size:100%;
+}
+.weui-tabs-bar__wrp{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9;
+}
+.weui-half-screen-dialog{
+  bottom:30px;
+}
+.ViewSearch{
+  top: 0;
+  left: 0;
+  padding-top: 24px;
+  z-index: 999;
+  border-bottom: #dedede 1px solid;
+  background-color: #F8F8F8;
+}
+.weui-tabs{
+  overflow-y: hidden!important;
+}
+.btmBar{
+  width: 100%;
+  position: fixed;
+  bottom: 45px;
+  left: 0px;
+  background: #F2F2F2;
+  border-top: #dedede 1px solid;
+  z-index: 9999;
+}

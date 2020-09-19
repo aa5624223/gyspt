@@ -1,0 +1,70 @@
+<!--pages/index/index.wxml -->
+<view class="page">
+	<view class="page__bd">
+ 		<mp-loading duration="{{900}}" type="circle" tips="数据加载中" show="{{loadShow}}"></mp-loading>
+  </view>
+	<mp-tabs tabs="{{tabs}}" activeTab="{{activeTab}}" SwiperClass="weui-tabs-swiper" bindtabclick="onTabClick" bindchange="onChange" activeClass="tab-bar-title_selected">
+		<block wx:for="{{tabs}}" wx:key="title">
+			<view class="tab-content" data-set="{{item}}" slot="tab-content-{{index}}" bind:tab="handleClick">
+				<scroll-view class="item-title" wx-if="{{index==0}}" scroll-y style="height: 100%;">
+					<!-- 公共信息 -->
+					<mp-cells ext-class="my-cells">
+						<mp-cell wx:if="{{NewsList1.length!=0}}" wx:for="{{NewsList1}}" wx:key="id"  data-id="{{item.id}}" data-title="{{item.Title}}" bindtap="NewsDetil">
+							<view>{{index+1}}.{{item.Title}}</view>
+							<view slot="footer">
+                <mp-icon type="field" icon="arrow" size="{{15}}"></mp-icon>
+              </view>
+						</mp-cell>
+						<view class="NotFountContent" wx:if="{{NewsList1.length==0}}">
+							没有数据
+							<!-- <button bindtap="fileTest">测试啊！！！</button> -->
+						</view>
+					</mp-cells>
+				</scroll-view>
+				<view class="item-title" wx-if="{{index==1}}">
+					<!-- 私有信息 -->
+					<mp-cells ext-class="my-cells">
+						<mp-cell wx:if="{{NewsList2.length!=0}}" wx:for="{{NewsList2}}" wx:key="id" data-id="{{item.id}}" data-title="{{item.Title}}"  bindtap="NewsDetil">
+							<view>{{index+1}}.{{item.Title}}</view>
+							<view slot="footer">
+                <mp-icon type="field" icon="arrow" size="{{15}}"></mp-icon>
+              </view>
+						</mp-cell>
+						<view class="NotFountContent" wx:if="{{NewsList2.length==0}}">
+							没有数据
+							
+						</view>
+					</mp-cells>
+				</view>
+				<view class="item-title" wx-if="{{index==2}}">
+					<!-- 月度冻结计划 -->
+					<mp-cells ext-class="my-cells">
+						<mp-cell wx:if="{{NewsList3.length!=0}}" wx:for="{{NewsList3}}" wx:key="id" data-id="{{item.id}}" data-title="{{item.Title}}"   bindtap="NewsDetil">
+							<view>{{index+1}}.{{item.Title}}</view>
+							<view slot="footer">
+                <mp-icon type="field" icon="arrow" size="{{15}}"></mp-icon>
+              </view>
+						</mp-cell>
+						<view class="NotFountContent" wx:if="{{NewsList3.length==0}}">
+							没有数据
+						</view>
+					</mp-cells>
+				</view>
+				<view class="item-title" wx-if="{{index==3}}">
+					<!-- 月度锁定计划 -->
+					<mp-cells ext-class="my-cells">
+						<mp-cell wx:if="{{NewsList4.length!=0}}" wx:for="{{NewsList4}}" wx:key="id" data-id="{{item.id}}" data-title="{{item.Title}}"  bindtap="NewsDetil">
+							<view>{{index+1}}.{{item.Title}}</view>
+							<view slot="footer">
+                <mp-icon type="field" icon="arrow" size="{{15}}"></mp-icon>
+              </view>
+						</mp-cell>
+						<view class="NotFountContent" wx:if="{{NewsList4.length==0}}">
+							没有数据
+						</view>
+					</mp-cells>
+				</view>
+			</view>
+		</block>
+	</mp-tabs>
+</view>
